@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>S.O.S Link</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="Index.html">
+      <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
+      </a>
+    </div>
+
+    <!-- Botão do menu hambúrguer -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav id="nav">
+      <a href="#">Mapa</a>
+      <a href="integrantes.html">Integrantes</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="login">
+      <img src="Imagens/login.png" alt="Login" />
+    </div>
+  </header>
+
+  <main>
+    <h1>Radar Solidário – Plataforma de ajuda entre vizinhos durante desastres</h1>
+    <p class="sub">Conectando quem precisa com quem pode ajudar - em momentos de crise, a solidariedade importa.</p>
+
+    <div class="buttons">
+      <button class="btn-red">Preciso de ajuda</button>
+      <button class="btn-blue">Quero ajudar</button>
+    </div>
+
+    <section class="features">
+      <div class="feature">
+        <div class="icon red">⏱️</div>
+        <h3>Ajuda rápida</h3>
+        <p>Encontre assistência rapidamente</p>
+      </div>
+      <div class="feature">
+        <div class="icon blue">👆</div>
+        <h3>Fácil de usar</h3>
+        <p>Plataforma simples e intuitiva</p>
+      </div>
+      <div class="feature">
+        <div class="icon red">🛡️</div>
+        <h3>Confiável</h3>
+        <p>Usuários verificados e avaliados</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-coluna">
+      <strong>Contato</strong>
+      <p>📧 SOSlink@gmail.com</p>
+      <p>📞 (11) 95371-9820</p>
+    </div>
+    <p class="copyright">
+      © S.O.S LINK - Projeto Global Solution FIAP.
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav");
+      nav.classList.toggle("show");
+    }
+
+    // Botões de ação
+    document.querySelectorAll("button.btn-red, button.btn-blue").forEach(btn => {
+      btn.addEventListener("click", () => {
+        alert(`Você clicou em: ${btn.textContent}`);
+      });
+    });
+  </script>
+</body>
+</html>
