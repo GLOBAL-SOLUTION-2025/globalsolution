@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+}
+
+nav {
+  flex: 1;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.login img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.legenda {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.legenda p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.icon.red {
+  background-color: red;
+}
+
+.icon.blue {
+  background-color: blue;
+}
+
+.explicacao {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #333;
+}
+
+footer {
+  background-color: #f1f1f1;
+  padding: 40px 20px;
+  color: #444;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-coluna {
+  margin-bottom: 20px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer .copyright {
+  margin-top: 20px;
+  color: #888;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  nav {
+    display: none;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .login img {
+    width: 35px;
+    height: 35px;
+  }
+}
+

@@ -18,7 +18,7 @@
     <button class="hamburger" onclick="toggleMenu()">☰</button>
 
     <nav id="nav">
-      <a href="#">Mapa</a>
+      <a href="mapa.html">Mapa</a>
       <a href="integrantes.html">Integrantes</a>
       <a href="faq.html">FAQ</a>
       <a href="contato.html">Contato</a>
@@ -34,7 +34,9 @@
     <p class="sub">Conectando quem precisa com quem pode ajudar - em momentos de crise, a solidariedade importa.</p>
 
     <div class="buttons">
+      <a href="ajuda.html">
       <button class="btn-red">Preciso de ajuda</button>
+      </a>
       <button class="btn-blue">Quero ajudar</button>
     </div>
 
@@ -67,19 +69,5 @@
       © S.O.S LINK - Projeto Global Solution FIAP.
     </p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById("nav");
-      nav.classList.toggle("show");
-    }
-
-    // Botões de ação
-    document.querySelectorAll("button.btn-red, button.btn-blue").forEach(btn => {
-      btn.addEventListener("click", () => {
-        alert(`Você clicou em: ${btn.textContent}`);
-      });
-    });
-  </script>
 </body>
 </html>
