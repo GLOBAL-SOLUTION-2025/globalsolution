@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ - Radar Solidário</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/faq.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="Index.html">
+        <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
+      </a>
+    </div>
+
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav id="nav">
+      <a href="mapa.html">Mapa</a>
+      <a href="integrantes.html">Integrantes</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+
+  </header>
+
+  <!-- FAQ -->
+  <main>
+    <h1>Perguntas Frequentes (FAQ)</h1>
+    <section class="faq">
+      <div class="faq-item">
+        <h2>Como faço para solicitar ajuda?</h2>
+        <p>Acesse a página “Preciso de Ajuda”, preencha o formulário e envie. Sua solicitação aparecerá no mapa.</p>
+      </div>
+      <div class="faq-item">
+        <h2>Como posso oferecer ajuda?</h2>
+        <p>Vá até a página “Quero Ajudar”, informe os dados e envie o formulário. Você será listado como um ajudante no mapa.</p>
+      </div>
+      <div class="faq-item">
+        <h2>É seguro compartilhar meus dados?</h2>
+        <p>Sim. As informações são armazenadas apenas localmente no seu navegador e utilizadas apenas para exibição no mapa.</p>
+      </div>
+      <div class="faq-item">
+        <h2>Preciso de uma conta para usar o serviço?</h2>
+        <p>Não. O uso do serviço é totalmente anônimo e gratuito, sem necessidade de login.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-coluna">
+      <strong>Contato</strong>
+      <p>📧 SOSlink@gmail.com</p>
+      <p>📞 (11) 95371-9820</p>
+    </div>
+    <p class="copyright">
+      © S.O.S LINK - Projeto Global Solution FIAP.
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>

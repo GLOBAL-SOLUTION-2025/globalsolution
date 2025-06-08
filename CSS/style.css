@@ -34,11 +34,7 @@ nav a {
   font-size: 18px;
 }
 
-.login img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
+
 
 /* Botão hamburguer */
 .hamburger {
@@ -48,6 +44,19 @@ nav a {
   border: none;
   cursor: pointer;
 }
+
+.buttons a {
+  text-decoration: none; /* remove o sublinhado */
+  display: inline-block; /* evita que o <a> crie espaçamento extra */
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
 
 /* Esconder menu por padrão em telas pequenas */
 @media (max-width: 600px) {

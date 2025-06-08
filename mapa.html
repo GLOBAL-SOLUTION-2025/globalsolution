@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mapa - Radar Solidário</title>
+  <link rel="stylesheet" href="CSS/style.css" />
   <link rel="stylesheet" href="CSS/mapa.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
@@ -11,28 +12,28 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
+      <a href="Index.html">
+        <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
+      </a>
     </div>
-    <nav>
-      <a href="index.html">Início</a>
+
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav id="nav">
       <a href="mapa.html">Mapa</a>
-      <a href="preciso-de-ajuda.html">Preciso de Ajuda</a>
-      <a href="#">FAQ</a>
-      <a href="#">Contato</a>
+      <a href="integrantes.html">Integrantes</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contato.html">Contato</a>
     </nav>
-    <div class="login">
-      <img src="Imagens/user-icon.png" alt="Login" />
-    </div>
+
+   
   </header>
 
   <!-- MAPA -->
   <main>
     <div id="map"></div>
 
-    <!-- LEGENDA -->
-    <section class="legenda">
-      <p><span class="icon red"></span> Pessoa precisando de ajuda</p>
-      <p><span class="icon blue"></span> Pessoa oferecendo ajuda</p>
+
 
       <div class="explicacao">
         <h3>Como usar o mapa:</h3>
@@ -52,11 +53,11 @@
   <footer>
     <div class="footer-coluna">
       <strong>Contato</strong>
-      <p>exemplo@email.com</p>
-      <p>+00 0000-0000</p>
+      <p>📧 SOSlink@gmail.com</p>
+      <p>📞 (11) 95371-9820</p>
     </div>
     <p class="copyright">
-      © 2024 Radar Solidário - Todos os direitos reservados.
+      © S.O.S LINK - Projeto Global Solution FIAP.
     </p>
   </footer>
 
@@ -97,25 +98,39 @@
       );
     }
 
-    // Carregar pedidos de ajuda do localStorage
-    const pedidos = JSON.parse(localStorage.getItem('pedidosAjuda')) || [];
+    // Função para adicionar marcadores no mapa
+    function adicionarMarcadores(dados, icone) {
+      dados.forEach((p) => {
+        if (p.lat && p.lng) {
+          L.marker([p.lat, p.lng], { icon: icone })
+            .addTo(map)
+            .bindPopup(`
+              <div style="min-width: 220px;">
+                <strong>👤 Nome:</strong> ${String(p.nome)}<br>
+                <strong>📞 Telefone:</strong> ${String(p.telefone)}<br>
+                <strong>🆘 Tipo(s) de ajuda:</strong> ${(p.tipos || []).join(', ')}<br>
+                <strong>📝 Descrição:</strong><br> ${String(p.descricao || 'Sem descrição')}
+              </div>
+            `);
+        }
+      });
+    }
 
-     pedidos.forEach((p) => {
-  const icone = p.tipo === 'oferece' ? iconeOferta : iconeAjuda;
-  L.marker([p.lat, p.lng], { icon: icone })
-    .addTo(map)
-    .bindPopup(`
-      <div style="min-width: 220px;">
-        <strong>👤 Nome:</strong> ${String(p.nome)}<br>
-        <strong>📞 Telefone:</strong> ${String(p.telefone)}<br>
-        <strong>🆘 Tipo(s) de ajuda:</strong> ${(p.tipos || []).join(', ')}<br>
-        <strong>📝 Descrição:</strong><br> ${String(p.descricao || 'Sem descrição')}
-      </div>
-    `);
-});
+    // Puxar dados do localStorage
+    const pedidosAjuda = JSON.parse(localStorage.getItem('pedidosAjuda')) || [];
+
+    // Filtrar dados
+    const pedidos = pedidosAjuda.filter(p => p.tipo === 'precisa');
+    const ofertas = pedidosAjuda.filter(p => p.tipo === 'oferece');
+
+    // Adicionar marcadores
+    adicionarMarcadores(pedidos, iconeAjuda);
+    adicionarMarcadores(ofertas, iconeOferta);
   </script>
 </body>
 </html>
+
+
 
 
 

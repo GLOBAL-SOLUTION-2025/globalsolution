@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Preciso de Ajuda</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/ajuda.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="Index.html">
+        <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
+      </a>
+    </div>
+
+    <!-- Botão do menu hambúrguer -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav id="nav">
+      <a href="mapa.html">Mapa</a>
+      <a href="integrantes.html">Integrantes</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h2>Estamos aqui para ajudar.</h2>
+      <p>Preencha o formulário abaixo para conectar-se com pessoas solidárias perto de você.</p>
+
+      <form id="form-ajuda">
+        <input type="text" id="nome" placeholder="Nome completo" required />
+        <input type="tel" id="telefone" placeholder="Telefone ou WhatsApp" required />
+
+        <fieldset>
+          <legend>Tipo de ajuda necessária:</legend>
+          <label><input type="checkbox" name="tipo-ajuda" value="Alimentação" /> 🍞 Alimentação</label>
+          <label><input type="checkbox" name="tipo-ajuda" value="Água" /> 💧 Água</label>
+          <label><input type="checkbox" name="tipo-ajuda" value="Abrigo" /> 🏠 Abrigo</label>
+          <label><input type="checkbox" name="tipo-ajuda" value="Medicamentos" /> 💊 Medicamentos</label>
+          <label><input type="checkbox" name="tipo-ajuda" value="Resgate" /> 🚨 Resgate/emergência</label>
+        </fieldset>
+
+        <textarea id="descricao" placeholder="Descreva sua situação..." rows="4"></textarea>
+
+        <button type="submit">Solicitar ajuda</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-coluna">
+      <strong>Contato</strong>
+      <p>📧 SOSlink@gmail.com</p>
+      <p>📞 (11) 95371-9820</p>
+    </div>
+    <p class="copyright">
+      © S.O.S LINK - Projeto Global Solution FIAP.
+    </p>
+  </footer>
+
+  <script>
+    let localizacao = null;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          localizacao = {
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude
+          };
+        },
+        () => {
+          alert("Permita o acesso à localização para enviar a solicitação.");
+        }
+      );
+    }
+
+    document.getElementById("form-ajuda").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!localizacao) {
+        alert("Aguardando localização do dispositivo...");
+        return;
+      }
+
+      const nome = document.getElementById("nome").value;
+      const telefone = document.getElementById("telefone").value;
+      const descricao = document.getElementById("descricao").value;
+      const tipoAjuda = document.querySelectorAll("input[name='tipo-ajuda']:checked");
+      const tiposSelecionados = Array.from(tipoAjuda).map(cb => cb.value);
+
+      const novoPedido = {
+        nome,
+        telefone,
+        descricao,
+        tipos: tiposSelecionados,
+        tipo: "precisa",
+        lat: localizacao.lat,
+        lng: localizacao.lng
+      };
+
+      const pedidos = JSON.parse(localStorage.getItem("pedidosAjuda")) || [];
+      pedidos.push(novoPedido);
+      localStorage.setItem("pedidosAjuda", JSON.stringify(pedidos));
+
+      alert("Solicitação enviada com sucesso!");
+      window.location.href = "mapa.html";
+    });
+  </script>
+</body>
+</html>
