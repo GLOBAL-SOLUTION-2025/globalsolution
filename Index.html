@@ -10,11 +10,10 @@
   <header>
     <div class="logo">
       <a href="Index.html">
-      <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
+        <img src="Imagens/logo.png" alt="Logo S.O.S Link" />
       </a>
     </div>
 
-    <!-- Botão do menu hambúrguer -->
     <button class="hamburger" onclick="toggleMenu()">☰</button>
 
     <nav id="nav">
@@ -23,7 +22,6 @@
       <a href="faq.html">FAQ</a>
       <a href="contato.html">Contato</a>
     </nav>
-
   </header>
 
   <main>
@@ -32,10 +30,10 @@
 
     <div class="buttons">
       <a href="precisoajuda.html">
-      <button class="btn-red">Preciso de ajuda</button>
+        <button class="btn-red">Preciso de ajuda</button>
       </a>
       <a href="queroajudar.html">
-      <button class="btn-blue">Quero ajudar</button>
+        <button class="btn-blue">Quero ajudar</button>
       </a>
     </div>
 
@@ -68,5 +66,13 @@
       © S.O.S LINK - Projeto Global Solution FIAP.
     </p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav");
+      nav.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
+

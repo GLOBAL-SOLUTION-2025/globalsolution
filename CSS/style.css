@@ -5,113 +5,66 @@ body {
   background: #fff;
   color: #222;
 }
-
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
   border-bottom: 1px solid #eee;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   position: relative;
 }
-
 .logo img {
   width: 90px;
   height: 90px;
 }
-
 nav {
-  flex: 1;
-  text-align: center;
+  display: flex;
+  gap: 20px;
 }
-
 nav a {
-  margin: 0 20px;
   text-decoration: none;
   color: #333;
   font-weight: 600;
   font-size: 18px;
 }
-
-
-
-/* Botão hamburguer */
 .hamburger {
   display: none;
   font-size: 28px;
   background: none;
   border: none;
   cursor: pointer;
+  color: #000;
+  align-self: center;
 }
-
 .buttons a {
-  text-decoration: none; /* remove o sublinhado */
-  display: inline-block; /* evita que o <a> crie espaçamento extra */
+  text-decoration: none;
+  display: inline-block;
 }
-
 .buttons {
   display: flex;
   gap: 15px;
   justify-content: center;
   margin: 20px 0;
 }
-
-
-/* Esconder menu por padrão em telas pequenas */
-@media (max-width: 600px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 70px;
-  }
-
-  nav a {
-    margin: 10px 0;
-    font-size: 18px;
-  }
-
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
 main {
   text-align: center;
   padding: 40px 20px;
 }
-
 h1 {
   font-size: 28px;
   max-width: 700px;
   margin: 0 auto 15px;
   color: #112;
 }
-
 .sub {
   max-width: 600px;
   margin: 0 auto 40px;
   color: #555;
 }
-
 .buttons {
   margin-bottom: 60px;
 }
-
 button {
   padding: 12px 24px;
   margin: 0 10px;
@@ -120,17 +73,14 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
-
 .btn-red {
   background-color: #e53935;
   color: #fff;
 }
-
 .btn-blue {
   background-color: #1a49c6;
   color: #fff;
 }
-
 .features {
   display: flex;
   justify-content: center;
@@ -138,25 +88,20 @@ button {
   padding: 40px 20px;
   flex-wrap: wrap;
 }
-
 .feature {
   max-width: 200px;
   text-align: center;
 }
-
 .icon {
   font-size: 36px;
   margin-bottom: 10px;
 }
-
 .icon.red {
   color: #e53935;
 }
-
 .icon.blue {
   color: #1a49c6;
 }
-
 footer {
   background-color: #f1f1f1;
   padding: 40px 20px;
@@ -164,57 +109,72 @@ footer {
   font-size: 14px;
   text-align: center;
 }
-
 .footer-coluna {
   margin-bottom: 20px;
 }
-
 footer p {
   margin: 5px 0;
 }
-
 footer .copyright {
   margin-top: 20px;
   color: #888;
 }
-
-/* Breakpoints extras conforme solicitado */
+@media (max-width: 600px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  nav.show {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+    position: static;
+  }
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+}
 @media (min-width: 600px) {
   nav a {
     font-size: 17px;
   }
 }
-
 @media (min-width: 768px) {
   nav a {
     font-size: 18px;
   }
-
   .logo img {
     width: 90px;
     height: 90px;
   }
 }
-
 @media (min-width: 992px) {
   nav a {
     font-size: 19px;
   }
 }
-
 @media (min-width: 1300px) {
   nav a {
     font-size: 20px;
   }
-
   h1 {
     font-size: 32px;
   }
-
   .sub {
     font-size: 18px;
   }
 }
+
 
 
 

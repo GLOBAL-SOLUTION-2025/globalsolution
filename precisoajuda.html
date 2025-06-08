@@ -15,7 +15,7 @@
       </a>
     </div>
 
-    <!-- Botão do menu hambúrguer -->
+
     <button class="hamburger" onclick="toggleMenu()">☰</button>
 
     <nav id="nav">
@@ -111,6 +111,11 @@
       alert("Solicitação enviada com sucesso!");
       window.location.href = "mapa.html";
     });
+
+
+     function toggleMenu() {
+      document.getElementById("nav").classList.toggle("show");
+    }
   </script>
 </body>
 </html>

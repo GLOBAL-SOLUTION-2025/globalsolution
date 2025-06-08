@@ -1,11 +1,8 @@
-/* === MAPA === */
 #map {
   height: 400px;
   width: 100%;
   margin-top: 20px;
 }
-
-
 .explicacao {
   margin-top: 20px;
   font-size: 15px;
@@ -19,18 +16,14 @@
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
-
 .explicacao h3 {
   margin-bottom: 10px;
   color: #444;
 }
-
-/* === RESPONSIVO (opcional) === */
 @media (max-width: 600px) {
   .legenda {
     font-size: 14px;
   }
-
   .explicacao {
     padding: 10px;
     font-size: 14px;

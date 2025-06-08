@@ -1,22 +1,14 @@
-
-
-
-
-/* FAQ Principal */
 main {
   padding: 40px 20px;
 }
-
 .faq-container {
   max-width: 800px;
   margin: auto;
 }
-
 .faq-container h1 {
   text-align: center;
   margin-bottom: 30px;
 }
-
 .faq-item {
   background-color: #fff;
   margin-bottom: 20px;
@@ -25,20 +17,15 @@ main {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
 }
-
 .faq-item h3 {
   margin: 0 0 10px;
   color: #007BFF;
 }
-
 .faq-item p {
   margin: 0;
   color: #333;
 }
 
-
-
-/* Responsivo */
 @media (max-width: 768px) {
   nav {
     display: none;
@@ -48,24 +35,18 @@ main {
     background-color: white;
     border-top: 1px solid #eee;
   }
-
   nav.show {
     display: flex;
   }
-
   .hamburger {
     display: block;
   }
-
   nav a {
     margin: 10px 0;
     font-size: 16px;
   }
-
   .logo img {
     width: 80px;
     height: 80px;
   }
-
-
 }

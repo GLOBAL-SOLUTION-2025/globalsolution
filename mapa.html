@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
-  <!-- HEADER -->
+
   <header>
     <div class="logo">
       <a href="Index.html">
@@ -29,7 +29,7 @@
    
   </header>
 
-  <!-- MAPA -->
+
   <main>
     <div id="map"></div>
 
@@ -49,7 +49,7 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+
   <footer>
     <div class="footer-coluna">
       <strong>Contato</strong>
@@ -61,16 +61,15 @@
     </p>
   </footer>
 
-  <!-- LEAFLET E SCRIPT -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    const map = L.map('map').setView([-23.55, -46.63], 12); // fallback padrão
+    const map = L.map('map').setView([-23.55, -46.63], 12); 
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    // Ícones personalizados
+
     const iconeAjuda = L.icon({
       iconUrl: 'Imagens/icone vermelho.png',
       iconSize: [30, 30],
@@ -85,7 +84,7 @@
       popupAnchor: [0, -30]
     });
 
-    // Centralizar mapa na localização do usuário
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -98,7 +97,7 @@
       );
     }
 
-    // Função para adicionar marcadores no mapa
+
     function adicionarMarcadores(dados, icone) {
       dados.forEach((p) => {
         if (p.lat && p.lng) {
@@ -116,14 +115,13 @@
       });
     }
 
-    // Puxar dados do localStorage
+
     const pedidosAjuda = JSON.parse(localStorage.getItem('pedidosAjuda')) || [];
 
-    // Filtrar dados
     const pedidos = pedidosAjuda.filter(p => p.tipo === 'precisa');
     const ofertas = pedidosAjuda.filter(p => p.tipo === 'oferece');
 
-    // Adicionar marcadores
+
     adicionarMarcadores(pedidos, iconeAjuda);
     adicionarMarcadores(ofertas, iconeOferta);
   </script>
